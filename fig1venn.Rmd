@@ -1,6 +1,6 @@
 ---
 title: "Fig1 Venn Alternative"
-output: md_document
+output: html_document
 fig_width: 4 
 fig_height: 6 
 ---
