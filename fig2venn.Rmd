@@ -25,6 +25,7 @@ Without reading the methods or results, I went looking for public access to the 
 
 Next, I went to [BioJupies](https://amp.pharm.mssm.edu/biojupies/) to see if I could quickly get a report of differentially gene expression. It didn't work on the first data set for some reason, but it did work for [GSE89692](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE89692). BioJupies only lets you compare two groups: control and perterbed. The GEO accession has nearly 200 samples, but only about a dozen are imported into BioJupies. I can't tell what's what sex or what brain region the samples are from, but I can see the 4 treatment groups I'm limited to a single comparison in BioJupies, so I compare ELS-ctl and ELS-STVS to look at the effect of adult stressors in all mice that were subjected to early life stressors. [You can view the notebook here](https://amp.pharm.mssm.edu/biojupies/notebook/Ptbvkbvay).
 
+I would like to have more data. I see that there are three supplemental tables, but those are rarely submitted to BioRxiv. The inputs and outputs to DESeq would be useful for reproducing the results. Is the beahivoral data publically available? There is no mention of a repository. 
 
 ## figures
 
