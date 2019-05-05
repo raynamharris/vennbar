@@ -111,8 +111,6 @@ transcripted from the text within the figure to the best of my ability.
 Colors for the bars were chosen by uploaded screen shots of the male and
 female venns and generating hex codes from
 <a href="https://imagecolorpicker.com/" class="uri">https://imagecolorpicker.com/</a>.
-I use “AS” to stands “adult stress” which encompaseses “Defeat” and
-“STVS”.
 
 ![](./fig2venn-alt1-1.png)
 
@@ -148,8 +146,8 @@ manuscript. I don’t think this figure aggrees with the stated results. I
 see the female VTA and NAc and the male PFC as having greater than 25%
 DEGs shared between one or more stress groups, which the other three
 show &lt; 25%. I do see that in the female NAc, 50% of the genes are
-unique to either ELS or AS alone. Maybe this is what those results refer
-to…
+unique to either ELS or Defeat/STVS alone. Maybe this is what those
+results refer to…
 
 **Figure 2 heat maps:** I don’t often see two heatmaps with different
 clustering approaches shown side by side, but I like this. I’m more used

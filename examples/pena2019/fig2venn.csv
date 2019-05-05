@@ -5,36 +5,36 @@ i,male,NAc,ELS,135
 n,female,NAc,ELS,307
 q,male,PFC,ELS,94
 v,female,PFC,ELS,74
-a,male,VTA,ELS + AS,79
-f,female,VTA,ELS + AS,163
-i,male,NAc,ELS + AS,150
-n,female,NAc,ELS + AS,145
-q,male,PFC,ELS + AS,176
-v,female,PFC,ELS + AS,290
-a,male,VTA,AS,290
-f,female,VTA,AS,82
-i,male,NAc,AS,69
-n,female,NAc,AS,115
-q,male,PFC,AS,142
-v,female,PFC,AS,95
-a,male,VTA,ELS vs AS,51
-f,female,VTA,ELS vs AS,8
-i,male,NAc,ELS vs AS,7
-n,female,NAc,ELS vs AS,20
-q,male,PFC,ELS vs AS,19
-v,female,PFC,ELS vs AS,14
-a,male,VTA,ELS vs ELS + AS,12
-f,female,VTA,ELS vs ELS + AS,44
-i,male,NAc,ELS vs ELS + AS,14
-n,female,NAc,ELS vs ELS + AS,209
-q,male,PFC,ELS vs ELS + AS,51
-v,female,PFC,ELS vs ELS + AS,10
-a,male,VTA,AS vs ELS + AS,34
-f,female,VTA,AS vs ELS + AS,30
-i,male,NAc,AS vs ELS + AS,20
-n,female,NAc,AS vs ELS + AS,6
-q,male,PFC,AS vs ELS + AS,46
-v,female,PFC,AS vs ELS + AS,6
+a,male,VTA,ELS + Defeat/STVS,79
+f,female,VTA,ELS + Defeat/STVS,163
+i,male,NAc,ELS + Defeat/STVS,150
+n,female,NAc,ELS + Defeat/STVS,145
+q,male,PFC,ELS + Defeat/STVS,176
+v,female,PFC,ELS + Defeat/STVS,290
+a,male,VTA,Defeat/STVS,290
+f,female,VTA,Defeat/STVS,82
+i,male,NAc,Defeat/STVS,69
+n,female,NAc,Defeat/STVS,115
+q,male,PFC,Defeat/STVS,142
+v,female,PFC,Defeat/STVS,95
+a,male,VTA,ELS vs Defeat/STVS,51
+f,female,VTA,ELS vs Defeat/STVS,8
+i,male,NAc,ELS vs Defeat/STVS,7
+n,female,NAc,ELS vs Defeat/STVS,20
+q,male,PFC,ELS vs Defeat/STVS,19
+v,female,PFC,ELS vs Defeat/STVS,14
+a,male,VTA,ELS vs ELS + Defeat/STVS,12
+f,female,VTA,ELS vs ELS + Defeat/STVS,44
+i,male,NAc,ELS vs ELS + Defeat/STVS,14
+n,female,NAc,ELS vs ELS + Defeat/STVS,209
+q,male,PFC,ELS vs ELS + Defeat/STVS,51
+v,female,PFC,ELS vs ELS + Defeat/STVS,10
+a,male,VTA,Defeat/STVS vs ELS + Defeat/STVS,34
+f,female,VTA,Defeat/STVS vs ELS + Defeat/STVS,30
+i,male,NAc,Defeat/STVS vs ELS + Defeat/STVS,20
+n,female,NAc,Defeat/STVS vs ELS + Defeat/STVS,6
+q,male,PFC,Defeat/STVS vs ELS + Defeat/STVS,46
+v,female,PFC,Defeat/STVS vs ELS + Defeat/STVS,6
 a,male,VTA,All,25
 f,female,VTA,All,51
 i,male,NAc,All,9

@@ -39,7 +39,7 @@ I would like to have more data. I see that there are three supplemental tables, 
 
 **Figure 2 venn diagrams:** At first glance, I like the venn diagrams because they do a nice job of conveying shared responses to stressors treatment. However, on closer inspection I noticed that the scaling is not consistent across all 6 venn diagrams, so you can't rely on size of the circle to compare across sexes or brain regions. [UpSet plots](https://github.com/hms-dbmi/UpSetR) that show bar graphs of intersectional data are increasingly popular; however they are easily to manipuate in terms of font size and bar color. 
 
-I have been experimenting with bar plots to show the same data. The second image below show a bar graph version of the same data, transcripted from the text within the figure to the best of my ability. Colors for the bars were chosen by uploaded screen shots of the male and female venns and generating hex codes from <https://imagecolorpicker.com/>. I use "AS" to stands "adult stress" which encompaseses "Defeat" and "STVS".
+I have been experimenting with bar plots to show the same data. The second image below show a bar graph version of the same data, transcripted from the text within the figure to the best of my ability. Colors for the bars were chosen by uploaded screen shots of the male and female venns and generating hex codes from <https://imagecolorpicker.com/>. 
 
 
 ```{r setup, message = F, echo = F}
@@ -52,14 +52,14 @@ knitr::opts_chunk$set(fig.path = './', echo = F, message = F)
 
 # colors from imagecolorpicker.com
 
-malecolors <- c("All" = "#79BDDE",  "AS vs ELS + AS" = "#A7C8D9", "ELS vs ELS + AS" = "#03BEEE" ,
-                "ELS vs AS" = "#8DD6F2", "ELS + AS" = "#92C9DE", "AS" = "#DDDEE0", "ELS" = "#69D7FC" )
+malecolors <- c("All" = "#79BDDE",  "Defeat/STVS vs ELS + Defeat/STVS" = "#A7C8D9", "ELS vs ELS + Defeat/STVS" = "#03BEEE" ,
+                "ELS vs Defeat/STVS" = "#8DD6F2", "ELS + Defeat/STVS" = "#92C9DE", "Defeat/STVS" = "#DDDEE0", "ELS" = "#69D7FC" )
 
-femalecolors <- c("All" = "#DE87B3", "AS vs ELS + AS" = "#D4AEC9", "ELS vs ELS + AS" = "#FF469F" ,
-                 "ELS vs AS" = "#E2A1BF", "ELS + AS" = "#F3A4D5", "AS" = "#DDDEE0", "ELS" = "#FF80BB" )
+femalecolors <- c("All" = "#DE87B3", "Defeat/STVS vs ELS + Defeat/STVS" = "#D4AEC9", "ELS vs ELS + Defeat/STVS" = "#FF469F" ,
+                 "ELS vs Defeat/STVS" = "#E2A1BF", "ELS + Defeat/STVS" = "#F3A4D5", "Defeat/STVS" = "#DDDEE0", "ELS" = "#FF80BB" )
 
-sharedunshared <- c("All" = "#810f7c",  "AS vs ELS + AS" = "#8c6bb1", "ELS vs ELS + AS" = "#8c96c6" ,
-                "ELS vs AS" = "#9ebcda", "ELS + AS" = "#fdb863", "AS" = "#e08214", "ELS" = "#b35806" )
+sharedunshared <- c("All" = "#810f7c",  "Defeat/STVS vs ELS + Defeat/STVS" = "#8c6bb1", "ELS vs ELS + Defeat/STVS" = "#8c96c6" ,
+                "ELS vs Defeat/STVS" = "#9ebcda", "ELS + Defeat/STVS" = "#fdb863", "Defeat/STVS" = "#e08214", "ELS" = "#b35806" )
 
 
 ```
@@ -73,11 +73,11 @@ fig2venn <- read.csv("fig2venn.csv")
 
 fig2venn$region <- factor(fig2venn$region, levels = c("VTA", "NAc", "PFC")) 
 fig2venn$group <- factor(fig2venn$group, levels = c("All" ,  
-                                                     "AS vs ELS + AS",
-                                                     "ELS vs ELS + AS" ,
-                                                     "ELS vs AS",
-                                                     "ELS + AS",
-                                                     "AS",
+                                                     "Defeat/STVS vs ELS + Defeat/STVS",
+                                                     "ELS vs ELS + Defeat/STVS" ,
+                                                     "ELS vs Defeat/STVS",
+                                                     "ELS + Defeat/STVS",
+                                                     "Defeat/STVS",
                                                      "ELS" 
                                                      ))
 
@@ -144,7 +144,7 @@ percentbytotal <- ggplot(fig2venn, aes(x = region, y = percent, fill = reorder(g
   geom_bar(stat = "identity") + 
   theme(legend.title = element_blank()) + 
   labs(x = NULL, y = "% DEGs \n of total",
-       caption = "Another alternative to Venn diagrams.") +
+       caption = "One alternative with % instead of counts.") +
   facet_wrap(~sex) +
   scale_fill_manual(values = sharedunshared) 
 
@@ -171,7 +171,7 @@ percentbygroup <- ggplot(fig2venn, aes(x = region, y = percent, fill = reorder(g
   geom_bar(stat = "identity") + 
   theme(legend.title = element_blank()) + 
   labs(x = NULL, y = "% DEGs \n by group",
-       caption = "This graph better matches the stated results.") +
+       caption = "This alternative displays the reported results.") +
   geom_hline(yintercept=22, linetype="dashed") +
   geom_hline(yintercept=50, linetype="dashed") +
   facet_wrap(~sex) +
@@ -181,7 +181,7 @@ percentbygroup <- ggplot(fig2venn, aes(x = region, y = percent, fill = reorder(g
 plot_grid(percentbytotal, percentbygroup, nrow = 2)
 ```
 
-When I calculated percent of DEGs for each group and then plotted the percentage, adding lines for 23 and 50%, which were noted in the manuscript. I don't think this figure aggrees with the stated results. I see the female VTA and NAc and the male PFC as having greater than 25% DEGs shared between one or more stress groups, which the other three show < 25%. I do see that in the female NAc, 50% of the genes are unique to either ELS or AS alone. Maybe this is what those results refer to...
+When I calculated percent of DEGs for each group and then plotted the percentage, adding lines for 23 and 50%, which were noted in the manuscript. I don't think this figure aggrees with the stated results. I see the female VTA and NAc and the male PFC as having greater than 25% DEGs shared between one or more stress groups, which the other three show < 25%. I do see that in the female NAc, 50% of the genes are unique to either ELS or Defeat/STVS alone. Maybe this is what those results refer to...
 
 **Figure 2 heat maps:** I don't often see two heatmaps with different clustering approaches shown side by side, but I like this. I'm more used to seeing the one's on the bottom that are clustered by correlation, but I like the addtional infromation gained by the "union" type. However, I can't help but wonder a) why the authors chose to show group averages rather than showing the data for all the samples. Also, why don't the authors provide a heatmap that shows how all the samples compare to one another? Do samples cluster mostly by brain region, sex, early-life stress or late-life stress? These are questions that could be easily deomonstrated with a supplementary heatmap or PCA plot or MDS plot in the supplemental material.  
 
