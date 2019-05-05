@@ -1,0 +1,150 @@
+---
+title: "Fig 2 Venn Alternative"
+output: html_document
+fig_width: 4 
+fig_height: 6 
+---
+
+Figure 2 of Peña el al has 6 venn diagrams that are not uniformally scales. So, one cannnot easily compare across groups. I have been experimenting with bar plots to show the same data. The second image below show a bar graph version of the same data, transcripted from the text within the figure to the best of my ability. Colors for the bars were chosen by uploaded screen shots of the male and female venns and generating hex codes from <https://imagecolorpicker.com/>.
+
+![](fig2venn-original.png)
+
+```{r setup, message = F, echo = F}
+library(ggplot2)
+library(dplyr)
+library(cowplot)
+
+knitr::opts_chunk$set(fig.path = './', echo = F, message = F)
+
+
+# colors from imagecolorpicker.com
+
+malecolors <- c("All" = "#79BDDE",  "AS vs ELS + AS" = "#A7C8D9", "ELS vs ELS + AS" = "#03BEEE" ,
+                "ELS vs AS" = "#8DD6F2", "ELS + AS" = "#92C9DE", "AS" = "#DDDEE0", "ELS" = "#69D7FC" )
+
+femalecolors <- c("All" = "#DE87B3", "AS vs ELS + AS" = "#D4AEC9", "ELS vs ELS + AS" = "#FF469F" ,
+                 "ELS vs AS" = "#E2A1BF", "ELS + AS" = "#F3A4D5", "AS" = "#DDDEE0", "ELS" = "#FF80BB" )
+
+sharedunshared <- c("All" = "#810f7c",  "AS vs ELS + AS" = "#8c6bb1", "ELS vs ELS + AS" = "#8c96c6" ,
+                "ELS vs AS" = "#9ebcda", "ELS + AS" = "#fdb863", "AS" = "#e08214", "ELS" = "#b35806" )
+
+
+```
+
+```{r fig2venn-alt1}
+fig2venn <- read.csv("fig2venn.csv")
+
+#head(fig2venn)
+
+#summary(fig2venn)
+
+fig2venn$region <- factor(fig2venn$region, levels = c("VTA", "NAc", "PFC")) 
+fig2venn$group <- factor(fig2venn$group, levels = c("All" ,  
+                                                     "AS vs ELS + AS",
+                                                     "ELS vs ELS + AS" ,
+                                                     "ELS vs AS",
+                                                     "ELS + AS",
+                                                     "AS",
+                                                     "ELS" 
+                                                     ))
+
+
+males <- fig2venn %>% filter(sex == "male") %>% droplevels()
+females <- fig2venn %>% filter(sex == "female") %>% droplevels()
+
+m <- ggplot(data=males, aes(x=group, y = number,  fill = group)) + 
+  geom_bar(stat="identity")  + 
+  coord_flip() + 
+  facet_wrap(~region, nrow = 3) +
+  scale_x_discrete(drop=FALSE)+
+  scale_y_continuous(limits=c(0, 325)) +
+  scale_fill_manual(values = malecolors) +
+  geom_text(aes(label=number),size=3, hjust = -0.05) +
+  guides(fill = guide_legend(reverse = TRUE)) +
+  theme(legend.title = element_blank(),
+        legend.position = "none",
+        strip.background = element_rect( fill="white")) +
+  labs(subtitle = "Male response",
+       x = NULL, y = "number of DEGs") 
+#m
+
+f <- ggplot(data=females, aes(x=group, y = number,  fill = group)) + 
+  geom_bar(stat="identity")  + 
+  coord_flip() + 
+  facet_wrap(~region, nrow = 3) +
+  scale_x_discrete(drop=FALSE)+
+  scale_y_continuous(limits=c(0, 325)) +
+  scale_fill_manual(values = femalecolors) +
+  geom_text(aes(label=number),size=3, hjust = -0.05) +
+  guides(fill = guide_legend(reverse = TRUE)) +
+  theme(legend.title = element_blank(),
+        legend.position = "none",
+        strip.background = element_rect( fill="white")) +
+  labs(subtitle = "Female response",
+       x = NULL, y = "number of DEGs") 
+#f
+
+plot_grid(m, f + theme(axis.text.y=element_blank()), 
+          nrow = 1, rel_widths = c(0.6,0.4))
+```
+
+I like the above bar plot because it lets me compare DEGs across sexs and brain regions. I see the largest responses in the VTA of males and the NAc of females. The PFC is most responsive to early and late stress combined, with little overlap to the other treatments. 
+
+So, I wondered. What do the results say when referencing the venn diagrams?
+
+_There was 1-23% overlap
+in DEGs across the three stress conditions (ELS or
+STVS/Defeat or ELS+STVS/Defeat) in male and
+female VTA, male NAc, and male and female PFC
+(Figure 2a, f, i, q, v), and more than 50% overlap in
+female NAc, compared to a standard-reared control
+with no adult stress (Std-Ctl; Figure 2n)._
+
+Hmm. This doesn't say another about, but quotes thresholds for percent overlap. I'm not really sure what they mean by overlap. I _assume_ it means the shaded regions of the venn diagrams, but I am not certain. 
+
+To confirm results, I had to caluculate percentage of overlap rather than plot total number of genes. I made a color palete where orange shades represent unique and purples reprsented shared (aka overlappping) gene expression responses. First I calculate the percent as a function of the sum total of DEGs. This does not relate to the results, but I do think it provides a nice alternative to venn diagrams. After than, I calculated percent of DEGs for each group and then plotted the percentage, adding lines for 23 and 50%, which were noted in the manuscript. I don't think this figure aggrees with the stated results. I see the female VTA and NAc and the male PFC as having greater than 25% DEGs shared between one or more stress groups, which the other three show < 25%. 
+
+```{r fig2venn-alt2}
+fig2venn$percent <- (fig2venn$number / sum(fig2venn$number) * 100)
+
+percentbytotal <- ggplot(fig2venn, aes(x = region, y = percent, fill = reorder(group, desc(group)))) + 
+  geom_bar(stat = "identity") + 
+  theme(legend.title = element_blank()) + 
+  labs(x = NULL, y = "% DEGs \n of total",
+       caption = "Another alternative to Venn diagrams.") +
+  geom_hline(yintercept=23, linetype="dashed") +
+  facet_wrap(~sex) +
+  scale_fill_manual(values = sharedunshared) 
+
+
+subsetpercent <- function(whichsex, whichregion){
+  newdf <- fig2venn %>% filter(sex == whichsex, region == whichregion)%>% droplevels()
+  newdf$percent <- (newdf$number / sum(newdf$number) * 100)
+  return(newdf)
+}
+
+MVTA <- subsetpercent("male", "VTA")
+MNAc <- subsetpercent("male", "NAc")
+MPFC <- subsetpercent("male", "PFC")
+FVTA <- subsetpercent("female", "VTA")
+FNAc <- subsetpercent("female", "NAc")
+FPFC <- subsetpercent("female", "PFC")
+
+fig2venn <- rbind(MVTA, MNAc,MPFC,FVTA, FNAc, FPFC)
+
+
+fig2venn$sex <- factor(fig2venn$sex, levels = c("female", "male"))
+
+percentbygroup <- ggplot(fig2venn, aes(x = region, y = percent, fill = reorder(group, desc(group)))) + 
+  geom_bar(stat = "identity") + 
+  theme(legend.title = element_blank()) + 
+  labs(x = NULL, y = "% DEGs \n by group",
+       caption = "This graph better matches the stated results.") +
+  geom_hline(yintercept=22, linetype="dashed") +
+  geom_hline(yintercept=50, linetype="dashed") +
+  facet_wrap(~sex) +
+  scale_fill_manual(values = sharedunshared) 
+
+
+plot_grid(percentbytotal, percentbygroup, nrow = 2)
+```
