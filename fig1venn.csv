@@ -5,36 +5,36 @@ i,male,NAc,ELS,135
 n,female,NAc,ELS,307
 q,male,PFC,ELS,94
 v,female,PFC,ELS,74
-a,male,VTA,ELS + Stress,79
-f,female,VTA,ELS + Stress,163
-i,male,NAc,ELS + Stress,150
-n,female,NAc,ELS + Stress,145
-q,male,PFC,ELS + Stress,176
-v,female,PFC,ELS + Stress,290
-a,male,VTA,Stress,290
-f,female,VTA,Stress,82
-i,male,NAc,Stress,69
-n,female,NAc,Stress,115
-q,male,PFC,Stress,142
-v,female,PFC,Stress,95
-a,male,VTA,ELS vs Stress,51
-f,female,VTA,ELS vs Stress,8
-i,male,NAc,ELS vs Stress,7
-n,female,NAc,ELS vs Stress,20
-q,male,PFC,ELS vs Stress,19
-v,female,PFC,ELS vs Stress,14
-a,male,VTA,ELS vs ELS + Stress,12
-f,female,VTA,ELS vs ELS + Stress,44
-i,male,NAc,ELS vs ELS + Stress,14
-n,female,NAc,ELS vs ELS + Stress,209
-q,male,PFC,ELS vs ELS + Stress,51
-v,female,PFC,ELS vs ELS + Stress,10
-a,male,VTA,Stress vs ELS + Stress,34
-f,female,VTA,Stress vs ELS + Stress,30
-i,male,NAc,Stress vs ELS + Stress,20
-n,female,NAc,Stress vs ELS + Stress,6
-q,male,PFC,Stress vs ELS + Stress,46
-v,female,PFC,Stress vs ELS + Stress,6
+a,male,VTA,ELS + AS,79
+f,female,VTA,ELS + AS,163
+i,male,NAc,ELS + AS,150
+n,female,NAc,ELS + AS,145
+q,male,PFC,ELS + AS,176
+v,female,PFC,ELS + AS,290
+a,male,VTA,AS,290
+f,female,VTA,AS,82
+i,male,NAc,AS,69
+n,female,NAc,AS,115
+q,male,PFC,AS,142
+v,female,PFC,AS,95
+a,male,VTA,ELS vs AS,51
+f,female,VTA,ELS vs AS,8
+i,male,NAc,ELS vs AS,7
+n,female,NAc,ELS vs AS,20
+q,male,PFC,ELS vs AS,19
+v,female,PFC,ELS vs AS,14
+a,male,VTA,ELS vs ELS + AS,12
+f,female,VTA,ELS vs ELS + AS,44
+i,male,NAc,ELS vs ELS + AS,14
+n,female,NAc,ELS vs ELS + AS,209
+q,male,PFC,ELS vs ELS + AS,51
+v,female,PFC,ELS vs ELS + AS,10
+a,male,VTA,AS vs ELS + AS,34
+f,female,VTA,AS vs ELS + AS,30
+i,male,NAc,AS vs ELS + AS,20
+n,female,NAc,AS vs ELS + AS,6
+q,male,PFC,AS vs ELS + AS,46
+v,female,PFC,AS vs ELS + AS,6
 a,male,VTA,All,25
 f,female,VTA,All,51
 i,male,NAc,All,9
