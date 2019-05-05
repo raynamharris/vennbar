@@ -83,8 +83,9 @@
       geom_text(aes(label=number),size=3, hjust = -0.05) +
       guides(fill = guide_legend(reverse = TRUE)) +
       theme(legend.title = element_blank(),
-            legend.position = "none") +
-      labs(subtitle = "Male response to stress",
+            legend.position = "none",
+            strip.background = element_rect( fill="white")) +
+      labs(subtitle = "Male response",
            x = NULL, y = "number of DEGs") 
 
 
@@ -105,8 +106,9 @@
       guides(fill = guide_legend(reverse = TRUE)) +
       theme(legend.title = element_blank(),
             legend.position = "none",
-            axis.text.y=element_blank()) +
-      labs(subtitle = "Female response to stress",
+            axis.text.y=element_blank(),
+            strip.background = element_rect( fill="white")) +
+      labs(subtitle = "Female response",
            x = NULL, y = "number of DEGs") 
 
 
