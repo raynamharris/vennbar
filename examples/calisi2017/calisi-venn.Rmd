@@ -1,6 +1,6 @@
 ---
 title: "Calisi Review"
-output: md_document
+output: html_document
 ---
 
 # Sex-biased transcriptomic response of the reproductive axis to stress
@@ -9,13 +9,13 @@ This venn diagram is from [this paper](https://www.sciencedirect.com/science/art
 
 ![](venn-original.png)
 
-```{r setup, message = F, echo = F}
+```{r setup, message = F, echo = T}
 library(ggplot2)
 library(dplyr)
 library(cowplot)
 #library(ggrepel)
 
-knitr::opts_chunk$set(fig.path = './', echo = F, message = F)
+knitr::opts_chunk$set(fig.path = './', echo = T, message = F)
 ```
 
 ```{r venn-alt}
@@ -23,30 +23,36 @@ venn <- read.csv("venn.csv")
 
 venn$tissue <- factor(venn$tissue, levels = c("hyp", "pit", "gon"))
 venn$sex <- factor(venn$sex, levels = c("female", "both", "male"))
+levels(venn$direction) <-  c("down", "up")
+levels(venn$tissue) <-  c("hypothalamus", "pituitary", "gonads")
+
 
 venn$directionsex <- as.factor(paste(venn$direction, venn$sex, sep = "\n"))
-venn$directionsex <- factor(venn$directionsex, levels = c("down-reg\nfemale",
-                                                          "up-reg\nfemale", 
-                                                          "down-reg\nmale",
-                                                          "up-reg\nmale", 
-                                                          "down-reg\nboth", 
-                                                          "up-reg\nboth"))
+venn$directionsex <- factor(venn$directionsex, levels = c(
+                                                          "up\nfemale", 
+                                                          
+                                                          "up\nmale",
+                                                          "up\nboth",
+                                                          "down\nfemale",
+                                                         
+                                                          "down\nmale",
+                                                            "down\nboth"))
 
-mycolors <- c("down-reg\nboth" = "#838383",
-                "down-reg\nfemale" = "#19A400", 
-                 "down-reg\nmale"  = "#516DFF",
-                 "up-reg\nboth"  = "#D9D9D9",
-                 "up-reg\nfemale"  = "#7EDC00",
-                 "up-reg\nmale" = "#8AC5F9")   
-
+mycolors <- c("down\nboth" = "#838383",
+                "down\nfemale" = "#19A400", 
+                 "down\nmale"  = "#516DFF",
+                 "up\nboth"  = "#D9D9D9",
+                 "up\nfemale"  = "#7EDC00",
+                 "up\nmale" = "#8AC5F9")  
 
 p2 <- ggplot(data=venn, aes(x=direction, y = count,  fill = reorder(directionsex, desc(directionsex)))) + 
   geom_bar(stat="identity") +
   labs(y = "total DEGs", x = NULL) +
-  scale_fill_manual(values = mycolors) +
-  theme(legend.title = element_blank()) +
+  scale_fill_manual(values = mycolors,
+                    name="Direction of enichment\nin in both sexes") +
   #geom_text_repel(position = "stack", aes(x=direction, y = count,  label = count ))
-  facet_wrap(~tissue) 
+  facet_wrap(~tissue) +
+  guides(fill = guide_legend(nrow = 3)) 
 p2
 ```
 
