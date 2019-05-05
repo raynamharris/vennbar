@@ -63,6 +63,12 @@ ELS-STVS to look at the effect of adult stressors in all mice that were
 subjected to early life stressors. [You can view the notebook
 here](https://amp.pharm.mssm.edu/biojupies/notebook/Ptbvkbvay).
 
+I would like to have more data. I see that there are three supplemental
+tables, but those are rarely submitted to BioRxiv. The inputs and
+outputs to DESeq would be useful for reproducing the results. Is the
+beahivoral data publically available? There is no mention of a
+repository.
+
 figures
 -------
 
@@ -88,6 +94,8 @@ show all the data in various ways in one figure, I think a little less
 quantity would improve the quality. So, let me report on each part of
 figure 2.
 
+![](fig2.png)
+
 **Figure 2 venn diagrams:** At first glance, I like the venn diagrams
 because they do a nice job of conveying shared responses to stressors
 treatment. However, on closer inspection I noticed that the scaling is
@@ -95,19 +103,20 @@ not consistent across all 6 venn diagrams, so you can’t rely on size of
 the circle to compare across sexes or brain regions. [UpSet
 plots](https://github.com/hms-dbmi/UpSetR) that show bar graphs of
 intersectional data are increasingly popular; however they are easily to
-manipuate in terms of font size and bar color. I have been experimenting
-with bar plots to show the same data. The second image below show a bar
-graph version of the same data, transcripted from the text within the
-figure to the best of my ability. Colors for the bars were chosen by
-uploaded screen shots of the male and female venns and generating hex
-codes from
+manipuate in terms of font size and bar color.
+
+I have been experimenting with bar plots to show the same data. The
+second image below show a bar graph version of the same data,
+transcripted from the text within the figure to the best of my ability.
+Colors for the bars were chosen by uploaded screen shots of the male and
+female venns and generating hex codes from
 <a href="https://imagecolorpicker.com/" class="uri">https://imagecolorpicker.com/</a>.
 I use “AS” to stands “adult stress” which encompaseses “Defeat” and
 “STVS”.
 
-![](fig2venn-original.png)
-
 ![](./fig2venn-alt1-1.png)
+
+![](fig2venn-alt2-original.png)
 
 I like the above bar plot because it lets me compare DEGs across sexs
 and brain regions. I see the largest responses in the VTA of males and
@@ -129,8 +138,11 @@ plot total number of genes. I made a color palete where orange shades
 represent unique and purples reprsented shared (aka overlappping) gene
 expression responses. First I calculate the percent as a function of the
 sum total of DEGs. This does not relate to the results, but I do think
-it provides a nice alternative to venn diagrams. After than, I
-calculated percent of DEGs for each group and then plotted the
+it provides a nice alternative to venn diagrams.
+
+![](./fig2venn-alt2-1.png)
+
+When I calculated percent of DEGs for each group and then plotted the
 percentage, adding lines for 23 and 50%, which were noted in the
 manuscript. I don’t think this figure aggrees with the stated results. I
 see the female VTA and NAc and the male PFC as having greater than 25%
@@ -138,8 +150,6 @@ DEGs shared between one or more stress groups, which the other three
 show &lt; 25%. I do see that in the female NAc, 50% of the genes are
 unique to either ELS or AS alone. Maybe this is what those results refer
 to…
-
-![](./fig2venn-alt2-1.png)
 
 **Figure 2 heat maps:** I don’t often see two heatmaps with different
 clustering approaches shown side by side, but I like this. I’m more used
