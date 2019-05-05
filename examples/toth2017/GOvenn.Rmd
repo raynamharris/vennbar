@@ -31,7 +31,7 @@ p <- ggplot(data=GOvenn, aes(x=pattern, y = count,  fill = species)) +
   geom_text(position = "stack", aes(x=pattern, y = count,  label = count, hjust = 0.5)) +
   theme(legend.position = "top",
         legend.title = element_blank()) +
-  labs(x = NULL)
+  labs(x = NULL, y = "total GO terms")
 p
 
 ```

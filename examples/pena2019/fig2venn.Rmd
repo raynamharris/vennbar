@@ -121,22 +121,41 @@ fig2venn <- rbind(MVTA, MNAc,MPFC,FVTA, FNAc, FPFC)
 
 #fig2venn$sex <- factor(fig2venn$sex, levels = c("female", "male"))
 
-p2 <- ggplot(fig2venn, aes(x = region, y = percent, fill = reorder(group, desc(group)))) + 
+ggplot(fig2venn, aes(x = region, y = percent, fill = reorder(group, desc(group)))) + 
   geom_bar(stat = "identity") + 
   #theme_bw(base_size = 9) +
   theme(legend.title = element_blank(),
-        legend.position = "bottom",
-        legend.text = element_text(size = 5.5),
+        legend.position = "top",
+        legend.text = element_text(size = 7),
         legend.key.size = unit(0.25, "cm"))  + 
   labs(x = NULL, y = "% DEGs") +
-  geom_hline(yintercept=22, linetype="dashed") +
-  geom_hline(yintercept=50, linetype="dashed") +
+  #geom_hline(yintercept=22, linetype="dashed") +
+  #geom_hline(yintercept=50, linetype="dashed") +
   facet_wrap(~sex) +
-  scale_fill_manual(values = sharedunshared) 
+  scale_fill_manual(values = sharedunshared) +
+  guides(fill = guide_legend(nrow = 3)) 
+
+
+fig2venn$region <- factor(fig2venn$region, levels = c("PFC", "NAc", "VTA"))
+
+p2 <- ggplot(fig2venn, aes(x = region, y = percent, fill = group)) + 
+  geom_bar(stat = "identity") + 
+  #theme_bw(base_size = 9) +
+  theme(legend.title = element_blank(),
+        legend.position = "top",
+        legend.text = element_text(size = 7),
+        legend.key.size = unit(0.25, "cm"))  + 
+  labs(x = NULL, y = "% DEGs") +
+  #geom_hline(yintercept=22, linetype="dashed") +
+  #geom_hline(yintercept=50, linetype="dashed") +
+  facet_wrap(~sex) +
+  scale_fill_manual(values = sharedunshared) +
+  guides(fill = guide_legend(nrow = 4)) +
+  coord_flip()
 p2
 ```
 
 ```{r pena-original-alt}
 p1 <- ggdraw() + draw_image("fig2venn-original.png", scale = 0.9)
-plot_grid(p1, p2, rel_widths = c(0.4,0.6))
+plot_grid(p1, p2,  rel_widths = c(0.45,0.55))
 ```
