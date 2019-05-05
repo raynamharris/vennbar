@@ -11,6 +11,6 @@ Bar chart style version of the same data. (Here AS stands for "adult stress" whi
 
 ![](fig2venn-alt1-1.png)
 
-![](fig2venn-alt1-1.png)
+![](fig2venn-alt1-2.png)
 
 To explore this analysis in the cloud, click the Binder button above and navigate to the [fig1venn.Rmd](./fig2venn.Rmd) file. Or, to go straight to the results, navigate to [fig1venn.md](./fig2venn.md).
