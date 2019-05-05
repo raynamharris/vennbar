@@ -8,4 +8,4 @@ paper](http://jeb.biologists.org/content/220/12/2149)
 
 ![](./GOvenn-alt-1.png)
 
-![](./GOvenn-original-alt-1.png)
+![](./toth-original-alt-1.png)

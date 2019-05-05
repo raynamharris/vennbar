@@ -8,4 +8,4 @@ paper](https://www.sciencedirect.com/science/article/pii/S0018506X17302696?via%3
 
 ![](./venn-alt-1.png)
 
-![](./calisi-venn-original-alt-1.png)
+![](./calisi-original-alt-1.png)

@@ -1,8 +1,6 @@
 ---
 title: "Calisi Review"
 output: md_document
-fig_width: 2 
-fig_height: 4 
 ---
 
 # Sex-biased transcriptomic response of the reproductive axis to stress
@@ -53,7 +51,7 @@ p2
 ```
 
 
-```{r calisi-venn-original-alt}
+```{r calisi-original-alt}
 p1 <- ggdraw() + draw_image("venn-original.png")
 plot_grid(p1, p2, nrow = 2, rel_heights =  c(.55, 0.45),
           labels = c("venn", "bar"), label_size = 8)
