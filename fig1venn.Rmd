@@ -1,11 +1,11 @@
 ---
 title: "Fig1 Venn Alternative"
-output: html_document
+output: md_document
 fig_width: 4 
 fig_height: 6 
 ---
 
-```{r setup}
+```{r setup, message = F}
 library(ggplot2)
 library(dplyr)
 library(cowplot)
@@ -16,20 +16,17 @@ knitr::opts_chunk$set(fig.path = './')
 ```{r fig1venn}
 fig1venn <- read.csv("fig1venn.csv")
 summary(fig1venn)
-levels(fig1venn$group)
 
 fig1venn$region <- factor(fig1venn$region, levels = c("VTA", "NAc", "PFC")) 
 fig1venn$group <- factor(fig1venn$group, levels = c("All" ,  
-                                                       "Stress & ELS + Stress",
-                                                       "ELS & ELS + Stress" ,
-                                                       "ELS & Stress",
+                                                       "Stress vs ELS + Stress",
+                                                       "ELS vs ELS + Stress" ,
+                                                       "ELS vs Stress",
                                                        "ELS + Stress",
                                                        "Stress",
                                                        "ELS" 
                                                        ))
 
-
-summary(fig1venn)
 
 males <- fig1venn %>% filter(sex == "male") %>% droplevels()
 females <- fig1venn %>% filter(sex == "female") %>% droplevels()
@@ -42,9 +39,9 @@ m <- ggplot(data=males, aes(x=group, y = number,  fill = group)) +
   scale_x_discrete(drop=FALSE)+
   scale_y_continuous(limits=c(0, 325)) +
   scale_fill_manual(values = c("All" = "#79BDDE",  
-                                "Stress & ELS + Stress" = "#A7C8D9",
-                                "ELS & ELS + Stress" = "#03BEEE" ,
-                                "ELS & Stress" = "#8DD6F2",
+                                "Stress vs ELS + Stress" = "#A7C8D9",
+                                "ELS vs ELS + Stress" = "#03BEEE" ,
+                                "ELS vs Stress" = "#8DD6F2",
                                 "ELS + Stress" = "#92C9DE",
                                 "Stress" = "#DDDEE0",
                                 "ELS" = "#69D7FC" )) +
@@ -64,9 +61,9 @@ f <- ggplot(data=females, aes(x=group, y = number,  fill = group)) +
   scale_x_discrete(drop=FALSE)+
   scale_y_continuous(limits=c(0, 325)) +
   scale_fill_manual(values = c("All" = "#DE87B3",  
-                                "Stress & ELS + Stress" = "#D4AEC9",
-                                "ELS & ELS + Stress" = "#FF469F" ,
-                                "ELS & Stress" = "#E2A1BF",
+                                "Stress vs ELS + Stress" = "#D4AEC9",
+                                "ELS vs ELS + Stress" = "#FF469F" ,
+                                "ELS vs Stress" = "#E2A1BF",
                                 "ELS + Stress" = "#F3A4D5",
                                 "Stress" = "#DDDEE0",
                                 "ELS" = "#FF80BB" )) +

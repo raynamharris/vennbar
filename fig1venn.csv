@@ -17,24 +17,24 @@ i,male,NAc,Stress,69
 n,female,NAc,Stress,115
 q,male,PFC,Stress,142
 v,female,PFC,Stress,95
-a,male,VTA,ELS & Stress,51
-f,female,VTA,ELS & Stress,8
-i,male,NAc,ELS & Stress,7
-n,female,NAc,ELS & Stress,20
-q,male,PFC,ELS & Stress,19
-v,female,PFC,ELS & Stress,14
-a,male,VTA,ELS & ELS + Stress,12
-f,female,VTA,ELS & ELS + Stress,44
-i,male,NAc,ELS & ELS + Stress,14
-n,female,NAc,ELS & ELS + Stress,209
-q,male,PFC,ELS & ELS + Stress,51
-v,female,PFC,ELS & ELS + Stress,10
-a,male,VTA,Stress & ELS + Stress,34
-f,female,VTA,Stress & ELS + Stress,30
-i,male,NAc,Stress & ELS + Stress,20
-n,female,NAc,Stress & ELS + Stress,6
-q,male,PFC,Stress & ELS + Stress,46
-v,female,PFC,Stress & ELS + Stress,6
+a,male,VTA,ELS vs Stress,51
+f,female,VTA,ELS vs Stress,8
+i,male,NAc,ELS vs Stress,7
+n,female,NAc,ELS vs Stress,20
+q,male,PFC,ELS vs Stress,19
+v,female,PFC,ELS vs Stress,14
+a,male,VTA,ELS vs ELS + Stress,12
+f,female,VTA,ELS vs ELS + Stress,44
+i,male,NAc,ELS vs ELS + Stress,14
+n,female,NAc,ELS vs ELS + Stress,209
+q,male,PFC,ELS vs ELS + Stress,51
+v,female,PFC,ELS vs ELS + Stress,10
+a,male,VTA,Stress vs ELS + Stress,34
+f,female,VTA,Stress vs ELS + Stress,30
+i,male,NAc,Stress vs ELS + Stress,20
+n,female,NAc,Stress vs ELS + Stress,6
+q,male,PFC,Stress vs ELS + Stress,46
+v,female,PFC,Stress vs ELS + Stress,6
 a,male,VTA,All,25
 f,female,VTA,All,51
 i,male,NAc,All,9
