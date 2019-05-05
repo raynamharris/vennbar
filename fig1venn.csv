@@ -1,0 +1,44 @@
+panel,sex,region,group,number
+a,male,VTA,ELS,251
+f,female,VTA,ELS,124
+i,male,NAc,ELS,135
+n,female,NAc,ELS,307
+q,male,PFC,ELS,94
+v,female,PFC,ELS,74
+a,male,VTA,ELS + Stress,79
+f,female,VTA,ELS + Stress,163
+i,male,NAc,ELS + Stress,150
+n,female,NAc,ELS + Stress,145
+q,male,PFC,ELS + Stress,176
+v,female,PFC,ELS + Stress,290
+a,male,VTA,Stress,290
+f,female,VTA,Stress,82
+i,male,NAc,Stress,69
+n,female,NAc,Stress,115
+q,male,PFC,Stress,142
+v,female,PFC,Stress,95
+a,male,VTA,ELS & Stress,51
+f,female,VTA,ELS & Stress,8
+i,male,NAc,ELS & Stress,7
+n,female,NAc,ELS & Stress,20
+q,male,PFC,ELS & Stress,19
+v,female,PFC,ELS & Stress,14
+a,male,VTA,ELS & ELS + Stress,12
+f,female,VTA,ELS & ELS + Stress,44
+i,male,NAc,ELS & ELS + Stress,14
+n,female,NAc,ELS & ELS + Stress,209
+q,male,PFC,ELS & ELS + Stress,51
+v,female,PFC,ELS & ELS + Stress,10
+a,male,VTA,Stress & ELS + Stress,34
+f,female,VTA,Stress & ELS + Stress,30
+i,male,NAc,Stress & ELS + Stress,20
+n,female,NAc,Stress & ELS + Stress,6
+q,male,PFC,Stress & ELS + Stress,46
+v,female,PFC,Stress & ELS + Stress,6
+a,male,VTA,All,25
+f,female,VTA,All,51
+i,male,NAc,All,9
+n,female,NAc,All,11
+q,male,PFC,All,16
+v,female,PFC,All,9
+

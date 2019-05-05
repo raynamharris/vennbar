@@ -13,7 +13,7 @@ library(cowplot)
 knitr::opts_chunk$set(fig.path = './')
 ```
 
-```{r newvenn}
+```{r fig1venn}
 fig1venn <- read.csv("fig1venn.csv")
 summary(fig1venn)
 levels(fig1venn$group)
