@@ -1,0 +1,13 @@
+GO,species,pattern,count
+h,P.fusatus,observed,42
+h,P.metricus,observed,20
+h,both,observed,10
+h,P.fusatus,expected,52
+h,P.metricus,expected,30
+h,both,expected,0
+i,P.fusatus,observed,31
+i,P.metricus,observed,25
+i,both,observed,13
+i,P.fusatus,expected,43
+i,P.metricus,expected,37
+i,both,expected,1

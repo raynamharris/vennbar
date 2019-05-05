@@ -1,0 +1,33 @@
+---
+title: "Toth Review"
+output: md_document
+fig_width: 2 
+fig_height: 4 
+---
+
+# Cognitive specialization for learning faces is associated with shifts in the brain transcriptome of a social wasp
+
+This venn diagram is from [this paper](http://jeb.biologists.org/content/220/12/2149)
+
+![](GOvenn-original.png)
+
+```{r setup, message = F, echo = F}
+library(ggplot2)
+library(dplyr)
+library(cowplot)
+
+knitr::opts_chunk$set(fig.path = './', echo = F, message = F)
+```
+
+```{r GOvenn-alt}
+GOvenn <- read.csv(file = "./GOvenn.csv")
+#head(GOvenn)
+
+GOvenn$pattern <- factor(GOvenn$pattern, levels = c("observed", "expected"))
+GOvenn$species <- factor(GOvenn$species, levels = c("P.fusatus", "both", "P.metricus"))
+
+ggplot(data=GOvenn, aes(x=pattern, y = count,  fill = species)) + 
+  geom_bar(stat="identity")  + 
+  facet_wrap(~GO, nrow = 2)
+
+```
