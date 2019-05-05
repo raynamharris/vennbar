@@ -1,4 +1,3 @@
-install.packages("ggplot2")
-install.packages("dplyr")
+install.packages("tidyverse")
 install.packages("cowplot")
 install.packages("rmarkdown")
