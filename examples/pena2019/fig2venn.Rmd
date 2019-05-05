@@ -52,15 +52,14 @@ knitr::opts_chunk$set(fig.path = './', echo = F, message = F)
 
 # colors from imagecolorpicker.com
 
-malecolors <- c("All" = "#79BDDE",  "Defeat/STVS vs ELS + Defeat/STVS" = "#A7C8D9", "ELS vs ELS + Defeat/STVS" = "#03BEEE" ,
-                "ELS vs Defeat/STVS" = "#8DD6F2", "ELS + Defeat/STVS" = "#92C9DE", "Defeat/STVS" = "#DDDEE0", "ELS" = "#69D7FC" )
+malecolors <- c("All" = "#79BDDE",  "Defeat/STVS and ELS + Defeat/STVS" = "#A7C8D9", "ELS and ELS + Defeat/STVS" = "#03BEEE" ,
+                "ELS and Defeat/STVS" = "#8DD6F2", "ELS + Defeat/STVS" = "#92C9DE", "Defeat/STVS" = "#DDDEE0", "ELS" = "#69D7FC" )
 
-femalecolors <- c("All" = "#DE87B3", "Defeat/STVS vs ELS + Defeat/STVS" = "#D4AEC9", "ELS vs ELS + Defeat/STVS" = "#FF469F" ,
-                 "ELS vs Defeat/STVS" = "#E2A1BF", "ELS + Defeat/STVS" = "#F3A4D5", "Defeat/STVS" = "#DDDEE0", "ELS" = "#FF80BB" )
+femalecolors <- c("All" = "#DE87B3", "Defeat/STVS and ELS + Defeat/STVS" = "#D4AEC9", "ELS and ELS + Defeat/STVS" = "#FF469F" ,
+                 "ELS and Defeat/STVS" = "#E2A1BF", "ELS + Defeat/STVS" = "#F3A4D5", "Defeat/STVS" = "#DDDEE0", "ELS" = "#FF80BB" )
 
-sharedunshared <- c("All" = "#810f7c",  "Defeat/STVS vs ELS + Defeat/STVS" = "#8c6bb1", "ELS vs ELS + Defeat/STVS" = "#8c96c6" ,
-                "ELS vs Defeat/STVS" = "#9ebcda", "ELS + Defeat/STVS" = "#fdb863", "Defeat/STVS" = "#e08214", "ELS" = "#b35806" )
-
+sharedunshared <- c("All" = "#810f7c",  "Defeat/STVS and ELS + Defeat/STVS" = "#8c6bb1", "ELS and ELS + Defeat/STVS" = "#8c96c6" ,
+                "ELS and Defeat/STVS" = "#9ebcda", "ELS + Defeat/STVS" = "#fdb863", "Defeat/STVS" = "#e08214", "ELS" = "#b35806" )
 
 ```
 
@@ -73,9 +72,9 @@ fig2venn <- read.csv("fig2venn.csv")
 
 fig2venn$region <- factor(fig2venn$region, levels = c("VTA", "NAc", "PFC")) 
 fig2venn$group <- factor(fig2venn$group, levels = c("All" ,  
-                                                     "Defeat/STVS vs ELS + Defeat/STVS",
-                                                     "ELS vs ELS + Defeat/STVS" ,
-                                                     "ELS vs Defeat/STVS",
+                                                     "Defeat/STVS and ELS + Defeat/STVS",
+                                                     "ELS and ELS + Defeat/STVS" ,
+                                                     "ELS and Defeat/STVS",
                                                      "ELS + Defeat/STVS",
                                                      "Defeat/STVS",
                                                      "ELS" 
@@ -118,11 +117,8 @@ f <- ggplot(data=females, aes(x=group, y = number,  fill = group)) +
 #f
 
 plot_grid(m, f + theme(axis.text.y=element_blank()), 
-          nrow = 1, rel_widths = c(0.6,0.4))
+          nrow = 1, rel_widths = c(0.7,0.3))
 ```
-
-
-![](fig2venn-alt2-original.png)
 
 
 I like the above bar plot because it lets me compare DEGs across sexs and brain regions. I see the largest responses in the VTA of males and the NAc of females. The PFC is most responsive to early and late stress combined, with little overlap to the other treatments. But, what do the results say when referencing the venn diagrams?
@@ -182,6 +178,10 @@ plot_grid(percentbytotal, percentbygroup, nrow = 2)
 ```
 
 When I calculated percent of DEGs for each group and then plotted the percentage, adding lines for 23 and 50%, which were noted in the manuscript. I don't think this figure aggrees with the stated results. I see the female VTA and NAc and the male PFC as having greater than 25% DEGs shared between one or more stress groups, which the other three show < 25%. I do see that in the female NAc, 50% of the genes are unique to either ELS or Defeat/STVS alone. Maybe this is what those results refer to...
+
+I think either of the stacked bar charts would be prefered over the venn diagrams.
+
+![](fig2venn-alt2-original.png)
 
 **Figure 2 heat maps:** I don't often see two heatmaps with different clustering approaches shown side by side, but I like this. I'm more used to seeing the one's on the bottom that are clustered by correlation, but I like the addtional infromation gained by the "union" type. However, I can't help but wonder a) why the authors chose to show group averages rather than showing the data for all the samples. Also, why don't the authors provide a heatmap that shows how all the samples compare to one another? Do samples cluster mostly by brain region, sex, early-life stress or late-life stress? These are questions that could be easily deomonstrated with a supplementary heatmap or PCA plot or MDS plot in the supplemental material.  
 

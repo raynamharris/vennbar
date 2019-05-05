@@ -17,24 +17,24 @@ i,male,NAc,Defeat/STVS,69
 n,female,NAc,Defeat/STVS,115
 q,male,PFC,Defeat/STVS,142
 v,female,PFC,Defeat/STVS,95
-a,male,VTA,ELS vs Defeat/STVS,51
-f,female,VTA,ELS vs Defeat/STVS,8
-i,male,NAc,ELS vs Defeat/STVS,7
-n,female,NAc,ELS vs Defeat/STVS,20
-q,male,PFC,ELS vs Defeat/STVS,19
-v,female,PFC,ELS vs Defeat/STVS,14
-a,male,VTA,ELS vs ELS + Defeat/STVS,12
-f,female,VTA,ELS vs ELS + Defeat/STVS,44
-i,male,NAc,ELS vs ELS + Defeat/STVS,14
-n,female,NAc,ELS vs ELS + Defeat/STVS,209
-q,male,PFC,ELS vs ELS + Defeat/STVS,51
-v,female,PFC,ELS vs ELS + Defeat/STVS,10
-a,male,VTA,Defeat/STVS vs ELS + Defeat/STVS,34
-f,female,VTA,Defeat/STVS vs ELS + Defeat/STVS,30
-i,male,NAc,Defeat/STVS vs ELS + Defeat/STVS,20
-n,female,NAc,Defeat/STVS vs ELS + Defeat/STVS,6
-q,male,PFC,Defeat/STVS vs ELS + Defeat/STVS,46
-v,female,PFC,Defeat/STVS vs ELS + Defeat/STVS,6
+a,male,VTA,ELS and Defeat/STVS,51
+f,female,VTA,ELS and Defeat/STVS,8
+i,male,NAc,ELS and Defeat/STVS,7
+n,female,NAc,ELS and Defeat/STVS,20
+q,male,PFC,ELS and Defeat/STVS,19
+v,female,PFC,ELS and Defeat/STVS,14
+a,male,VTA,ELS and ELS + Defeat/STVS,12
+f,female,VTA,ELS and ELS + Defeat/STVS,44
+i,male,NAc,ELS and ELS + Defeat/STVS,14
+n,female,NAc,ELS and ELS + Defeat/STVS,209
+q,male,PFC,ELS and ELS + Defeat/STVS,51
+v,female,PFC,ELS and ELS + Defeat/STVS,10
+a,male,VTA,Defeat/STVS and ELS + Defeat/STVS,34
+f,female,VTA,Defeat/STVS and ELS + Defeat/STVS,30
+i,male,NAc,Defeat/STVS and ELS + Defeat/STVS,20
+n,female,NAc,Defeat/STVS and ELS + Defeat/STVS,6
+q,male,PFC,Defeat/STVS and ELS + Defeat/STVS,46
+v,female,PFC,Defeat/STVS and ELS + Defeat/STVS,6
 a,male,VTA,All,25
 f,female,VTA,All,51
 i,male,NAc,All,9
