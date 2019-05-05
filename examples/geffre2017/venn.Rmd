@@ -43,11 +43,13 @@ p2 <- ggplot(data=venn, aes(x=reorder(comparison, desc(count)), y = count,  fill
              "WorkGyne and StylGyne" = "WorkGyne \nandStylGyne" ,
              "StylGyne" = "StylGyne",
               "StylGyne and WorkSytl" = "StylGyne \nandWorkSytl")) +
+  geom_text(aes(x=reorder(comparison, desc(count)),  label = count, hjust = 0.5)) +
   coord_flip()
 p2
 ```
 
 ```{r geffre-original-alt}
 p1 <- ggdraw() + draw_image("venn-original.png")
-plot_grid(p1, p2, rel_widths = c(0.6,0.4))
+plot_grid(p1, p2, rel_widths = c(0.6,0.4),
+          labels = c("venn", "bar"), label_size = 8)
 ```

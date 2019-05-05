@@ -15,6 +15,7 @@ This venn diagram is from [this paper](https://www.sciencedirect.com/science/art
 library(ggplot2)
 library(dplyr)
 library(cowplot)
+#library(ggrepel)
 
 knitr::opts_chunk$set(fig.path = './', echo = F, message = F)
 ```
@@ -45,15 +46,16 @@ p2 <- ggplot(data=venn, aes(x=direction, y = count,  fill = reorder(directionsex
   geom_bar(stat="identity") +
   labs(y = "total DEGs", x = NULL) +
   scale_fill_manual(values = mycolors) +
-  theme(legend.title = element_blank(),) +
-  facet_wrap(~tissue)
-
+  theme(legend.title = element_blank()) +
+  #geom_text_repel(position = "stack", aes(x=direction, y = count,  label = count ))
+  facet_wrap(~tissue) 
 p2
 ```
 
 
 ```{r calisi-venn-original-alt}
 p1 <- ggdraw() + draw_image("venn-original.png")
-plot_grid(p1, p2, nrow = 2, rel_heights =  c(.55, 0.45))
+plot_grid(p1, p2, nrow = 2, rel_heights =  c(.55, 0.45),
+          labels = c("venn", "bar"), label_size = 8)
 ```
 

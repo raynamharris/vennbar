@@ -157,5 +157,6 @@ p2
 
 ```{r pena-original-alt}
 p1 <- ggdraw() + draw_image("fig2venn-original.png", scale = 0.9)
-plot_grid(p1, p2,  rel_widths = c(0.45,0.55))
+plot_grid(p1, p2,  rel_widths = c(0.45,0.55),
+          labels = c("venn", "bar"), label_size = 8)
 ```

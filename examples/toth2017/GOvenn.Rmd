@@ -38,5 +38,6 @@ p
 
 ```{r GOvenn-original-alt}
 p2 <- ggdraw() + draw_image("GOvenn-original.png", scale = 0.9)
-plot_grid(p2, p, rel_widths = c(0.4,0.6))
+plot_grid(p2, p, rel_widths = c(0.4,0.6),
+          labels = c("venn", "bar"), label_size = 8)
 ```
