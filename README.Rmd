@@ -33,7 +33,7 @@ Example 4 from [Early life stress alters transcriptomic patterning across reward
 ![](./examples/pena2019/pena-original-alt-1.png)
 
 
-```{r vennbar, fig.height=4, fig.width=8}
+```{r vennbar, fig.height=4, fig.width=7}
 p1 <- ggdraw() + draw_image("examples/toth2017/toth-original-alt-1.png")
 p2 <- ggdraw() + draw_image("examples/pena2019/pena-original-alt-1.png")
 p3 <- ggdraw() + draw_image("examples/geffre2017/geffre-original-alt-1.png")
