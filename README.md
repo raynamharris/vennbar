@@ -49,15 +49,15 @@ highly the candidate genes.
 Example 4 from [Early life stress alters transcriptomic patterning
 across reward circuitry in male and female
 mice](https://www.biorxiv.org/content/10.1101/624353v1) by Catherine
-Jensen Peña *et al.* [My preprint review (in progress) and data viz
-alternatives can be read here.](./examples/pena2019/fig2venn.md). This
-might be my favorite. The subplot has its own scaling, so of circles
-cannot be compared across plots. Moreover, the authors report the per
-cent of shared gene expression, which venn diagrams shos counts. So, I
-calculated the per cent. Shared gene expression patterns are shown in
-purple; unique gene expression in orange. Now, you can spot unusual
-trends in the data, like increase response to early and late life stress
-in the female PFC. This is something that is hidden in the Venn Diagram.
+Jensen Peña *et al.* The code for my bar plot alternative [is
+here.](./examples/pena2019/fig2venn.md). This might be my favorite. The
+subplot has its own scaling, so of circles cannot be compared across
+plots. Moreover, the authors report the per cent of shared gene
+expression, which venn diagrams shos counts. So, I calculated the per
+cent. Shared gene expression patterns are shown in purple; unique gene
+expression in orange. Now, you can spot unusual trends in the data, like
+increase response to early and late life stress in the female PFC. This
+is something that is hidden in the Venn Diagram.
 
 ![](./examples/pena2019/pena-original-alt-1.png)
 
