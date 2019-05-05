@@ -145,7 +145,6 @@ percentbytotal <- ggplot(fig2venn, aes(x = region, y = percent, fill = reorder(g
   theme(legend.title = element_blank()) + 
   labs(x = NULL, y = "% DEGs \n of total",
        caption = "Another alternative to Venn diagrams.") +
-  geom_hline(yintercept=23, linetype="dashed") +
   facet_wrap(~sex) +
   scale_fill_manual(values = sharedunshared) 
 
