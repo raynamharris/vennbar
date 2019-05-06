@@ -31,8 +31,7 @@ paper](http://jeb.biologists.org/content/220/12/2149)
 ![](./GOvenn-alt-1.png)
 
     p2 <- ggdraw() + draw_image("GOvenn-original.png")
-    plot_grid(p2, p, rel_widths = c(0.5,0.5),
-              labels = c("venn", "bar"), label_size = 8)
+    plot_grid(p2, p, rel_widths = c(0.5,0.5))
 
 ![](./toth-original-alt-1.png)
 

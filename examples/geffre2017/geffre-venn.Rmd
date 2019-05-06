@@ -9,12 +9,12 @@ output: md_document
 
 ![](venn-original.png)
 
-```{r setup, message = F, echo = F}
+```{r setup, message = F}
 library(ggplot2)
 library(dplyr)
 library(cowplot)
 
-knitr::opts_chunk$set(fig.path = './', echo = F, message = F)
+knitr::opts_chunk$set(fig.path = './', message = F)
 ```
 
 
@@ -50,6 +50,5 @@ p2
 
 ```{r geffre-original-alt}
 p1 <- ggdraw() + draw_image("venn-original.png")
-plot_grid(p1, p2, rel_widths = c(0.6,0.4),
-          labels = c("venn", "bar"), label_size = 8)
+plot_grid(p1, p2, rel_widths = c(0.6,0.4))
 ```

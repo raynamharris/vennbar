@@ -6,6 +6,52 @@ paper](https://www.sciencedirect.com/science/article/pii/S0018506X17302696?via%3
 
 ![](venn-original.png)
 
+    library(ggplot2)
+    library(dplyr)
+    library(cowplot)
+    #library(ggrepel)
+
+    knitr::opts_chunk$set(fig.path = './', echo = T, message = F)
+
+    venn <- read.csv("venn.csv")
+
+    venn$tissue <- factor(venn$tissue, levels = c("hyp", "pit", "gon"))
+    venn$sex <- factor(venn$sex, levels = c("female", "both", "male"))
+    levels(venn$direction) <-  c("down", "up")
+    levels(venn$tissue) <-  c("hypothalamus", "pituitary", "gonads")
+
+
+    venn$directionsex <- as.factor(paste(venn$direction, venn$sex, sep = "\n"))
+    venn$directionsex <- factor(venn$directionsex, levels = c(
+                                                              "up\nfemale", 
+                                                              
+                                                              "up\nmale",
+                                                              "up\nboth",
+                                                              "down\nfemale",
+                                                             
+                                                              "down\nmale",
+                                                                "down\nboth"))
+
+    mycolors <- c("down\nboth" = "#838383",
+                    "down\nfemale" = "#19A400", 
+                     "down\nmale"  = "#516DFF",
+                     "up\nboth"  = "#D9D9D9",
+                     "up\nfemale"  = "#7EDC00",
+                     "up\nmale" = "#8AC5F9")  
+
+    p2 <- ggplot(data=venn, aes(x=direction, y = count,  fill = reorder(directionsex, desc(directionsex)))) + 
+      geom_bar(stat="identity") +
+      labs(y = "total DEGs", x = NULL) +
+      scale_fill_manual(values = mycolors,
+                        name="Direction of enichment\nin in both sexes") +
+      #geom_text_repel(position = "stack", aes(x=direction, y = count,  label = count ))
+      facet_wrap(~tissue) +
+      guides(fill = guide_legend(nrow = 3)) 
+    p2
+
 ![](./venn-alt-1.png)
+
+    p1 <- ggdraw() + draw_image("venn-original.png")
+    plot_grid(p1, p2, nrow = 2, rel_heights =  c(.55, 0.45))
 
 ![](./calisi-original-alt-1.png)

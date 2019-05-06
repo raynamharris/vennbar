@@ -9,12 +9,12 @@ This venn diagram is from [this paper](https://www.biorxiv.org/content/10.1101/6
   
 ![](fig2.png)  
   
-```{r setup, message = F, echo = F}
+```{r setup, message = F, echo = T}
 library(ggplot2)
 library(dplyr)
 library(cowplot)
 
-knitr::opts_chunk$set(fig.path = './', echo = F, message = F)
+knitr::opts_chunk$set(fig.path = './', echo = T, message = F)
 
 ```
 
@@ -157,6 +157,5 @@ p2
 
 ```{r pena-original-alt}
 p1 <- ggdraw() + draw_image("fig2venn-original.png", scale = 0.9)
-plot_grid(p1, p2,  rel_widths = c(0.45,0.55),
-          labels = c("venn", "bar"), label_size = 8)
+plot_grid(p1, p2,  rel_widths = c(0.45,0.55))
 ```
