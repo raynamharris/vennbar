@@ -27,6 +27,8 @@ Example 3 if from [Transcriptomics of an extended phenotype: parasite manipulati
 
 Example 4 from [Early life stress alters transcriptomic patterning across reward circuitry in male and female mice](https://www.biorxiv.org/content/10.1101/624353v1) by Catherine Jensen Peña _et al._  This might be my favorite. The subplot has its own scaling, so of circles cannot be compared across plots. Moreover, the authors report the per cent of shared gene expression, which venn diagrams shos counts. So, I calculated the per cent. Shared gene expression patterns are shown in purple;  unique gene expression in orange. Now, you can spot unusual trends in the data, like increase response to early and late life stress in the female PFC. This is something that is hidden in the Venn Diagram.  [Here is the code](./examples/pena2019/pena-venn.Rmd) for my bar plot alternative.
 
+![](./examples/pena2019/pena-original-alt-1.png)
+
 
 ```{r vennbar, fig.height=4, fig.width=7}
 p1 <- ggdraw() + draw_image("examples/toth2017/toth-original-alt-1.png")

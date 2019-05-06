@@ -57,6 +57,8 @@ response to early and late life stress in the female PFC. This is
 something that is hidden in the Venn Diagram. [Here is the
 code](./examples/pena2019/pena-venn.Rmd) for my bar plot alternative.
 
+![](./examples/pena2019/pena-original-alt-1.png)
+
 ![](./vennbar-1.png)
 
 What do you think? What other alternatives do you suggest?
