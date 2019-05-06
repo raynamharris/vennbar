@@ -14,11 +14,18 @@ associated with shifts in the brain transcriptome of a social wasp by
 Berens et al.](http://jeb.biologists.org/content/220/12/2149). In this
 example, the circles do not represent a meaningful quantity. A stacked
 bar plot can use color, space, and text to highlight patterns in the
-data. A table is another possible and easily reproducible alternative.
-[Here is the code](./examples/toth2017/toth-venn.Rmd) for my bar plot
-alternative.
+data. [Here is the code](./examples/toth2017/toth-venn.Rmd) for my bar
+plot alternative.
 
 ![](./examples/toth2017/toth-original-alt-1.png)
+
+Another reproducible alternative to the venn diagram is a table.
+
+    ##   GO  pattern P.fusatus both P.metricus
+    ## 1  h observed        42   10         20
+    ## 2  h expected        52    0         30
+    ## 3  i observed        31   13         25
+    ## 4  i expected        43    1         37
 
 Example 2 if from [Sex-biased transcriptomic response of the
 reproductive axis to stress by Calisi et
@@ -51,8 +58,8 @@ across reward circuitry in male and female
 mice](https://www.biorxiv.org/content/10.1101/624353v1) by Catherine
 Jensen Peña *et al.* This might be my favorite. The subplot has its own
 scaling, so of circles cannot be compared across plots. Moreover, the
-authors report the per cent of shared gene expression, which venn
-diagrams shos counts. So, I calculated the per cent. Shared gene
+authors report the *percent* of shared gene expression, but there venn
+diagrams show *counts*. So, I calculated the per cent. Shared gene
 expression patterns are shown in purple; unique gene expression in
 orange. Now, you can spot unusual trends in the data, like increase
 response to early and late life stress in the female PFC. This is
