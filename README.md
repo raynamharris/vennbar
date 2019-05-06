@@ -18,6 +18,8 @@ data. A table is another possible and easily reproducible alternative.
 [Here is the code](./examples/toth2017/toth-venn.Rmd) for my bar plot
 alternative.
 
+![](./examples/toth2017/toth-original-alt-1.png)
+
 Example 2 if from [Sex-biased transcriptomic response of the
 reproductive axis to stress by Calisi et
 al.](https://www.sciencedirect.com/science/article/pii/S0018506X17302696?via%3Dihub).
