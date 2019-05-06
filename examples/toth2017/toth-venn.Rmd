@@ -1,6 +1,6 @@
 ---
 title: "Toth Review"
-output: html_document
+output: md_document
 ---
 
 # Cognitive specialization for learning faces is associated with shifts in the brain transcriptome of a social wasp
@@ -37,7 +37,7 @@ p
 ```
 
 ```{r toth-original-alt}
-p2 <- ggdraw() + draw_image("GOvenn-original.png", scale = 0.9)
+p2 <- ggdraw() + draw_image("GOvenn-original.png")
 plot_grid(p2, p, rel_widths = c(0.5,0.5),
           labels = c("venn", "bar"), label_size = 8)
 ```

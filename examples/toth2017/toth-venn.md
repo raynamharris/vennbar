@@ -6,7 +6,7 @@ paper](http://jeb.biologists.org/content/220/12/2149)
 
 ![](GOvenn-original.png)
 
-    library(ggplot2)
+    library(tidyverse)
     library(cowplot)
 
     knitr::opts_chunk$set(fig.path = './', echo = T, message = F)
@@ -30,8 +30,18 @@ paper](http://jeb.biologists.org/content/220/12/2149)
 
 ![](./GOvenn-alt-1.png)
 
-    p2 <- ggdraw() + draw_image("GOvenn-original.png", scale = 0.9)
-    plot_grid(p2, p, rel_widths = c(0.4,0.6),
+    p2 <- ggdraw() + draw_image("GOvenn-original.png")
+    plot_grid(p2, p, rel_widths = c(0.5,0.5),
               labels = c("venn", "bar"), label_size = 8)
 
 ![](./toth-original-alt-1.png)
+
+    GOvenn %>%
+      spread(species, count) %>%
+      select(GO, pattern,P.fusatus, both, P.metricus)
+
+    ##                     GO  pattern P.fusatus both P.metricus
+    ## 1 biological processes expected        52    0         30
+    ## 2 biological processes observed        42   10         20
+    ## 3  molecular functions expected        43    1         37
+    ## 4  molecular functions observed        31   13         25
