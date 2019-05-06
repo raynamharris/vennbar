@@ -5,13 +5,13 @@ directory where there is a subdirectory for each of the four examples,
 all identified by the first or last author.
 
 [Venn diagrams](https://en.wikipedia.org/wiki/Venn_diagram) are a type
-of figure that I see a lot of behavioral genomics research. While I do
-agree that Venn diagrams are a great way to *conceptualize* the goal of
-looking for shared or unique transcriptional responses to experimental
+of figure that I see a lot of behavioral genomics research. While Venn
+diagrams are a great way to *conceptualize* the goal of looking for
+shared or unique transcriptional responses to experimental
 manipulations, I don’t think they are the best way to *vizualize
 empirical data*.
 
-I don’t think I am the only one with this opinion. I searched for “Venn”
+I also don’t think I am alone with this opinion. I searched for “Venn”
 in Garrett Grolemund & Hadley Wickham’s [R for Data
 Science](https://r4ds.had.co.nz/) book and in Claus Wilke’s
 [Fundamentals of Data Visualization](https://serialmentor.com/dataviz/)
