@@ -15,14 +15,14 @@ Berens et al.](http://jeb.biologists.org/content/220/12/2149). In this
 example, the circles do not represent a meaningful quantity. A stacked
 bar plot can use color, space, and text to highlight patterns in the
 data. A table is another possible and easily reproducible alternative.
-[Here is the code](./examples/toth2017/toth-venn.md) for my bar plot
+[Here is the code](./examples/toth2017/toth-venn.Rmd) for my bar plot
 alternative.
 
 Example 2 if from [Sex-biased transcriptomic response of the
 reproductive axis to stress by Calisi et
 al.](https://www.sciencedirect.com/science/article/pii/S0018506X17302696?via%3Dihub).
 The code for my bar plot alternative [is
-here](./examples/calisi2017/calisi-venn.md). This weighted Venn diagram
+here](./examples/calisi2017/calisi-venn.Rmd). This weighted Venn diagram
 is the highest quality Venn diagram I’ve ever seen. Here, the circles
 convey meaning at large sizes, but they lose resolution at smaller
 values. I think bar plots can convey the data more accurately. This
@@ -39,7 +39,8 @@ Again, these circles do not represent the data. This is a simple bar
 chart without any fancy facetting or stacking. I flipped the coordinates
 rather than rotating the text. The authors used an arrow, but I used a
 bright red fill to highly the candidate genes. [Here is the
-code](./examples/geffre2017/geffre-venn.md) for my bar plot alternative.
+code](./examples/geffre2017/geffre-venn.Rmd) for my bar plot
+alternative.
 
 ![](./examples/geffre2017/geffre-original-alt-1.png)
 
@@ -54,7 +55,7 @@ expression patterns are shown in purple; unique gene expression in
 orange. Now, you can spot unusual trends in the data, like increase
 response to early and late life stress in the female PFC. This is
 something that is hidden in the Venn Diagram. [Here is the
-code](./examples/pena2019/pena-venn.md) for my bar plot alternative.
+code](./examples/pena2019/pena-venn.Rmd) for my bar plot alternative.
 
 ![](./vennbar-1.png)
 
