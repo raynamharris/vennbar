@@ -41,9 +41,9 @@ paper](https://www.sciencedirect.com/science/article/pii/S0018506X17302696?via%3
 
     p2 <- ggplot(data=venn, aes(x=direction, y = count,  fill = reorder(directionsex, desc(directionsex)))) + 
       geom_bar(stat="identity") +
-      labs(y = "total DEGs", x = NULL) +
+      labs(y = "total DEGs", x = "direction of enrichment") +
       scale_fill_manual(values = mycolors,
-                        name="Direction of enichment\nin in both sexes") +
+                        name="direction * sex") +
       #geom_text_repel(position = "stack", aes(x=direction, y = count,  label = count ))
       facet_wrap(~tissue) +
       guides(fill = guide_legend(nrow = 3)) 
