@@ -4,8 +4,6 @@ bar plots or explore the code in the cloud. Navigate to the `examples`
 directory where there is a subdirectory for each of the four examples,
 all identified by the first or last author.
 
-![](./vennbar-1.png)
-
 ![](./vennbar2-1.png)
 
 [Venn diagrams](https://en.wikipedia.org/wiki/Venn_diagram) are a type
@@ -14,13 +12,30 @@ great way to *conceptualize* the goal of looking for shared or unique
 transcriptional responses to experimental manipulations, I don’t think
 they are the best way to *vizualize empirical data*.
 
-Here, I compare four Venn diagrams from published research articles to
-four bar plots that I made with `tidyverse` and `cowplot`. I think these
-bar plots can be made more simplicity, flexibility, reliability, and
-reproducibility than a Venn diagram. These Venn diagrams all come from
-labs that I admire and respect. I really value their research
-contributions, but I do hope to see more alternatives for Venn diagrams
-in future publications.
+I searched for “Venn” in Garrett Grolemund & Hadley Wickham’s [R for
+Data Science](https://r4ds.had.co.nz/) book and in Claus Wilke’s
+[Fundamentals of Data Visualization](https://serialmentor.com/dataviz/)
+book, for guidance alternatives to the Venn diagram. Neither book
+discusses Venn diagrams, but they both provide valuable insight into
+creating bar plots. Interestingly, the R for Data Science book does use
+Venn diagrams to illustrate the differences between `inner_join` and
+`full_join`, so that provides some evidence that Venn diagrams are
+useful for conceptualizing ideas about data.)
+
+The [UpSet plot](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4720993/)
+has gained some popularity since 2016. I’ve made a handful of UpSet
+plots with [`upsetR`](https://github.com/hms-dbmi/UpSetR). While it is
+possible to modify the aesthetics of an UpSet plot, it is very
+challenging to manipulate the size, shape, colors, and font to the
+degree that is needed to combine many plots into one multi-panel figure
+for a manuscript.
+
+In this repository, I turn 12 Venn diagrams from published research
+articles to four bar plots made with `tidyverse` and `cowplot`. I think
+these bar plots can be made more simplicity, flexibility, reliability,
+and reproducibility than a Venn diagram.
+
+Let me know what you think!
 
 ![](./examples/toth2017/toth-original-alt-1.png)
 
