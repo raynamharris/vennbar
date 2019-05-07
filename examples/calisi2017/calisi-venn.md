@@ -22,15 +22,7 @@ paper](https://www.sciencedirect.com/science/article/pii/S0018506X17302696?via%3
 
 
     venn$directionsex <- as.factor(paste(venn$direction, venn$sex, sep = "\n"))
-    venn$directionsex <- factor(venn$directionsex, levels = c(
-                                                              "up\nfemale", 
-                                                              
-                                                              "up\nmale",
-                                                              "up\nboth",
-                                                              "down\nfemale",
-                                                             
-                                                              "down\nmale",
-                                                                "down\nboth"))
+
 
     mycolors <- c("down\nboth" = "#838383",
                     "down\nfemale" = "#19A400", 
@@ -39,19 +31,29 @@ paper](https://www.sciencedirect.com/science/article/pii/S0018506X17302696?via%3
                      "up\nfemale"  = "#7EDC00",
                      "up\nmale" = "#8AC5F9")  
 
-    p2 <- ggplot(data=venn, aes(x=direction, y = count,  fill = reorder(directionsex, desc(directionsex)))) + 
+
+    venn$directionsex <- factor(venn$directionsex, levels = c("down\nfemale", 
+                                                              "down\nmale",
+                                                              "down\nboth",
+                                                              "up\nboth",
+                                                              "up\nmale",
+                                                                "up\nfemale"))
+
+    p2 <- ggplot(data=venn, aes(x=tissue, y = count,  fill = reorder(directionsex, desc(directionsex)))) + 
       geom_bar(stat="identity") +
-      labs(y = "total DEGs", x = "direction of enrichment") +
-      scale_fill_manual(values = mycolors,
-                        name="direction * sex") +
+      labs(y = "total DEGs", x = "direction * sex") +
+      scale_fill_manual(values = mycolors) +
       #geom_text_repel(position = "stack", aes(x=direction, y = count,  label = count ))
-      facet_wrap(~tissue) +
-      guides(fill = guide_legend(nrow = 3)) 
-    p2
+      #facet_wrap(~tissue) +
+      guides(fill = guide_legend(nrow = 2))  +
+      theme_minimal() +
+        theme(legend.position = "bottom",
+              legend.title = element_blank())
+    p2 
 
 ![](./venn-alt-1.png)
 
     p1 <- ggdraw() + draw_image("venn-original.png")
-    plot_grid(p1, p2, nrow = 2, rel_heights =  c(.55, 0.45))
+    plot_grid(p1, p2, nrow = 1, rel_widths = c(0.6, 0.4))
 
 ![](./calisi-original-alt-1.png)

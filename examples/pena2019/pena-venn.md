@@ -131,9 +131,10 @@ paper](https://www.biorxiv.org/content/10.1101/624353v1)
 
     p2 <- ggplot(fig2venn, aes(x = region, y = percent, fill = group)) + 
       geom_bar(stat = "identity") + 
-      #theme_bw(base_size = 9) +
+      #theme_bw(base_size = 9) +  
+      theme_minimal() +
       theme(legend.title = element_blank(),
-            legend.position = "top",
+            legend.position = "bottom",
             legend.text = element_text(size = 7),
             legend.key.size = unit(0.25, "cm"))  + 
       labs(x = NULL, y = "% DEGs") +
@@ -142,7 +143,7 @@ paper](https://www.biorxiv.org/content/10.1101/624353v1)
       facet_wrap(~sex) +
       scale_fill_manual(values = sharedunshared) +
       guides(fill = guide_legend(nrow = 4)) +
-      coord_flip()
+      coord_flip() 
     p2
 
 ![](./fig2venn-alt2-3.png)

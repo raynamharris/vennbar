@@ -4,6 +4,8 @@ bar plots or explore the code in the cloud. Navigate to the `examples`
 directory where there is a subdirectory for each of the four examples,
 all identified by the first or last author.
 
+![](./vennbar2-1.png)
+
 [Venn diagrams](https://en.wikipedia.org/wiki/Venn_diagram) are a type
 of figure that I see a lot of behavioral genomics research. While Venn
 diagrams are a great way to *conceptualize* the goal of looking for
@@ -11,15 +13,31 @@ shared or unique transcriptional responses to experimental
 manipulations, I don’t think they are the best way to *vizualize
 empirical data*.
 
-I also don’t think I am alone with this opinion. I searched for “Venn”
-in Garrett Grolemund & Hadley Wickham’s [R for Data
-Science](https://r4ds.had.co.nz/) book and in Claus Wilke’s
+I searched for “Venn” in Garrett Grolemund & Hadley Wickham’s [R for
+Data Science](https://r4ds.had.co.nz/) book and in Claus Wilke’s
 [Fundamentals of Data Visualization](https://serialmentor.com/dataviz/)
-book, and I found **zero** support for using Venn diagrams in
-communicate data. (Note: the R for Data Science book does use Venn
-diagrams to illustrate the differences between `inner_join` and
-`full_join`, but this supports my intuition that Venn diagrams are
+book, for guidance alternatives to the Venn diagram. Neither book
+discusses Venn diagrams, but they both provide valuable insight into
+creating bar plots. Interestingly, the R for Data Science book does use
+Venn diagrams to illustrate the differences between `inner_join` and
+`full_join`, so that provides some evidence that Venn diagrams are
 useful for conceptualizing ideas about data.)
+
+The [UpSet plot](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4720993/)
+has gained some popularity since 2016. I’ve made a handful of UpSet
+plots with [`upsetR`](https://github.com/hms-dbmi/UpSetR). While it is
+possible to modify the aesthetics of an UpSet plot, it is very
+challenging to manipulate the size, shape, colors, and font to the
+degree that is needed to combine many plots into one multi-panel figure
+for a manuscript.
+
+![](upsetR.png)
+
+I do really like the bar charts in the UpSet plot, so I set out to
+recreate them with [`ggplot2`](https://ggplot2.tidyverse.org/) and
+[`cowplot`](https://cran.r-project.org/web/packages/cowplot/vignettes/introduction.html).
+You can explore all the code in my [vennbar repository on
+GitHub](https://github.com/raynamharris/vennbar).
 
 With this blog post, my goal is to encourage more scientists to use
 **bar charts instead of Venn diagrams** to communicate experimental
@@ -31,14 +49,13 @@ diagrams all come from labs that I admire and respect. I really value
 their research contributions, but I do hope to see more alternatives for
 Venn diagrams in future publications.
 
-![](./vennbar-1.png)
-
 **Example 1** is from [Cognitive specialization for learning faces is
 associated with shifts in the brain transcriptome of a social wasp by
 Berens *et al*. 2017](http://jeb.biologists.org/content/220/12/2149). In
 this example, the circles do not represent a meaningful quantity. A
 stacked bar plot can use color, space, and text to highlight patterns in
-the data. I wanted to make the bar plot mirror the Venn diagram as
+the data, which in this case appears to be a greater overlap than
+expected. I wanted to make the bar plot mirror the Venn diagram as
 closely as possible, but I changed the order of the factors so that
 “both” category was plotted first. This was necessary for adding text to
 the bar chart because the values for *P. metricus* and both were

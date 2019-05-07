@@ -27,6 +27,7 @@ paper](https://royalsocietypublishing.org/doi/full/10.1098/rspb.2017.0029?url_ve
       geom_bar(stat="identity") +
       labs(y = "Total DEGs", x = NULL) +
       scale_fill_manual(values = mycolors) +
+      theme_minimal() +
       theme(legend.title = element_blank(),
             legend.position = "none") +
       scale_x_discrete(labels=c("All" = "All",

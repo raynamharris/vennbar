@@ -20,12 +20,15 @@ paper](http://jeb.biologists.org/content/220/12/2149)
 
     p <- ggplot(data=GOvenn, aes(x=pattern, y = count,  fill = species)) + 
       geom_bar(stat="identity")  + 
+      theme_minimal() +
+      scale_x_discrete(name = NULL,
+                       expand = c(0,0)) +
       coord_flip() +
       facet_wrap(~GO, nrow = 2) +
       geom_text(position = "stack", aes(x=pattern, y = count,  label = count, hjust = 0.5)) +
-      theme(legend.position = "top",
+      theme(legend.position = "bottom",
             legend.title = element_blank()) +
-      labs(x = NULL, y = "total GO terms")
+      labs(x = NULL, y = "total GO terms") 
     p
 
 ![](./GOvenn-alt-1.png)

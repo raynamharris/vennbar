@@ -12,13 +12,7 @@ knitr::opts_chunk$set(fig.path = './', echo = F, message = F)
 [![Binder](http://mybinder.org/badge.svg)](http://beta.mybinder.org/v2/gh/raynamharris/vennbar/master?urlpath=rstudio)
 Click the button to launch a Binder R session and tinker with all the bar plots or explore the code in the cloud. Navigate to the `examples` directory where there is a subdirectory for each of the four examples, all identified by the first or last author.
 
-[Venn diagrams](https://en.wikipedia.org/wiki/Venn_diagram) are a type of figure that I see a lot of behavioral genomics research. While Venn diagrams are a great way to _conceptualize_ the goal of looking for shared or unique transcriptional responses to experimental manipulations, I don't think they are the best way to _vizualize empirical data_. 
-
-I also don't think I am alone with this opinion. I searched for "Venn" in Garrett Grolemund & Hadley Wickham's [R for Data Science](https://r4ds.had.co.nz/) book and in Claus Wilke's [Fundamentals of Data Visualization](https://serialmentor.com/dataviz/) book, and I found **zero** support for using Venn diagrams in communicate data. (Note: the R for Data Science book does use Venn diagrams to illustrate the differences between `inner_join` and `full_join`, but this supports my intuition that Venn diagrams are useful for conceptualizing ideas about data.) 
-
-With this blog post, my goal is to encourage more scientists to use **bar charts instead of Venn diagrams** to communicate experimental results. Here, I compare four Venn diagrams from published research articles to four bar plots that I made with `tidyverse` and `cowplot`. I think these bar plots can be made more simplicity, flexibility, reliability, and reproducibility than a Venn diagram. These Venn diagrams all come from labs that I admire and respect. I really value their research contributions, but I do hope to see more alternatives for Venn diagrams in future publications.
-
-```{r vennbar, fig.height=4, fig.width=7}
+```{r vennbar, fig.height=4, fig.width=7, include=F}
 p1 <- ggdraw() + draw_image("examples/toth2017/toth-original-alt-1.png")
 p2 <- ggdraw() + draw_image("examples/pena2019/pena-original-alt-1.png")
 p3 <- ggdraw() + draw_image("examples/geffre2017/geffre-original-alt-1.png")
@@ -27,7 +21,38 @@ p4 <- ggdraw() + draw_image("examples/calisi2017/calisi-original-alt-1.png")
 plot_grid(p1,p3,p4,p2, labels = c(1,2,3,4), label_size = 8)
 ```
 
-**Example 1**  is from [Cognitive specialization for learning faces is associated with shifts in the brain transcriptome of a social wasp by Berens _et al_. 2017](http://jeb.biologists.org/content/220/12/2149). In this example, the circles do not represent a meaningful quantity. A stacked bar plot can use color, space, and text to highlight patterns in the data. I wanted to make the bar plot mirror the Venn diagram as closely as possible, but I changed the order of the factors so that "both" category was plotted first. This was necessary for adding text to the bar chart because the values for _P. metricus_ and both were overlapping when I kept the "both" category in the middle. [Here is the code](https://github.com/raynamharris/vennbar/blob/master/examples/toth2017/toth-venn.md) for my bar plot alternative.
+```{r vennbar2, fig.height=4, fig.width=7, include=T}
+p1a <- ggdraw() + draw_image("examples/toth2017/GOvenn-original.png")
+p1b <- ggdraw() + draw_image("examples/toth2017/GOvenn-alt-1.png") 
+p2a <- ggdraw() + draw_image("examples/pena2019/fig2venn-original.png")
+p2b <- ggdraw() + draw_image("examples/pena2019/fig2venn-alt2-3.png") 
+p3a <- ggdraw() + draw_image("examples/geffre2017/venn-original.png")
+p3b <- ggdraw() + draw_image("examples/geffre2017/venn-alt-1.png")
+p4a <- ggdraw() + draw_image("examples/calisi2017/venn-original.png")
+p4b <- ggdraw() + draw_image("examples/calisi2017/venn-alt-1.png")
+
+plot_grid(p1a,p3a,p4a,p2a,
+          p1b,p3b,p4b,p2b,
+          nrow = 2,
+          labels = c(1,2,3,4,
+                     NULL,NULL,NULL,NULL), label_size = 8)
+```
+
+
+[Venn diagrams](https://en.wikipedia.org/wiki/Venn_diagram) are a type of figure that I see a lot of behavioral genomics research. While Venn diagrams are a great way to _conceptualize_ the goal of looking for shared or unique transcriptional responses to experimental manipulations, I don't think they are the best way to _vizualize empirical data_. 
+
+I searched for "Venn" in Garrett Grolemund & Hadley Wickham's [R for Data Science](https://r4ds.had.co.nz/) book and in Claus Wilke's [Fundamentals of Data Visualization](https://serialmentor.com/dataviz/) book, for guidance alternatives to the Venn diagram. Neither book discusses Venn diagrams, but they both provide valuable insight into creating bar plots. Interestingly, the R for Data Science book does use Venn diagrams to illustrate the differences between `inner_join` and `full_join`, so that provides some evidence that Venn diagrams are useful for conceptualizing ideas about data.)
+
+The [UpSet plot](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4720993/) has gained some popularity since 2016. I've made a handful of UpSet plots with [`upsetR`](https://github.com/hms-dbmi/UpSetR). While it is possible to modify the aesthetics of an UpSet plot, it is very challenging to manipulate the size, shape, colors, and font to the degree that is needed to combine many plots into one multi-panel figure for a manuscript. 
+
+![](upsetR.png)
+
+I do really like the bar charts in the UpSet plot, so I set out to recreate them with [`ggplot2`](https://ggplot2.tidyverse.org/) and [`cowplot`](https://cran.r-project.org/web/packages/cowplot/vignettes/introduction.html). You can explore all the code in my [vennbar repository on GitHub](https://github.com/raynamharris/vennbar). 
+
+With this blog post, my goal is to encourage more scientists to use **bar charts instead of Venn diagrams** to communicate experimental results. Here, I compare four Venn diagrams from published research articles to four bar plots that I made with `tidyverse` and `cowplot`. I think these bar plots can be made more simplicity, flexibility, reliability, and reproducibility than a Venn diagram. These Venn diagrams all come from labs that I admire and respect. I really value their research contributions, but I do hope to see more alternatives for Venn diagrams in future publications.
+
+
+**Example 1**  is from [Cognitive specialization for learning faces is associated with shifts in the brain transcriptome of a social wasp by Berens _et al_. 2017](http://jeb.biologists.org/content/220/12/2149). In this example, the circles do not represent a meaningful quantity. A stacked bar plot can use color, space, and text to highlight patterns in the data, which in this case appears to be a greater overlap than expected. I wanted to make the bar plot mirror the Venn diagram as closely as possible, but I changed the order of the factors so that "both" category was plotted first. This was necessary for adding text to the bar chart because the values for _P. metricus_ and both were overlapping when I kept the "both" category in the middle. [Here is the code](https://github.com/raynamharris/vennbar/blob/master/examples/toth2017/toth-venn.md) for my bar plot alternative.
 
 
 ![](./examples/toth2017/toth-original-alt-1.png)
