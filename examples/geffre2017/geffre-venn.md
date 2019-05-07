@@ -4,7 +4,7 @@ Transcriptomics of an extended phenotype: parasite manipulation of wasp social b
 This venn diagram is from [this
 paper](https://royalsocietypublishing.org/doi/full/10.1098/rspb.2017.0029?url_ver=Z39.88-2003&rfr_id=ori:rid:crossref.org&rfr_dat=cr_pub%3dpubmed)
 
-![](venn-original.png)
+![](geffre2017.png)
 
     library(ggplot2)
     library(dplyr)
@@ -47,3 +47,11 @@ paper](https://royalsocietypublishing.org/doi/full/10.1098/rspb.2017.0029?url_ve
     plot_grid(p1, p2, rel_widths = c(0.6,0.4))
 
 ![](./geffre-original-alt-1.png)
+
+As with example 1, the size of these circles does convey any meaning
+about the size of the sets. The bar chart really highlights that fact
+that that “worker versus gyne” (or “WorkGyne” for short) comparison
+yields the most differentially expressed genes. However, that was not
+the main message of the Venn diagram. The authors used an arrow an `*`
+to highlight one particular comparison, so I used a bright red fill to
+highlight the parasite manipulation candidate genes.

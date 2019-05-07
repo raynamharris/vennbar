@@ -1,5 +1,5 @@
 ---
-title: "Pena Review"
+title: "Pena Venn"
 output: md_document
 ---
 
@@ -7,7 +7,7 @@ output: md_document
   
 This venn diagram is from [this paper](https://www.biorxiv.org/content/10.1101/624353v1)
   
-![](fig2.png)  
+![](Pena2019.png)  
   
 ```{r setup, message = F, echo = T}
 library(ggplot2)
@@ -152,7 +152,8 @@ p2 <- ggplot(fig2venn, aes(x = region, y = percent, fill = group)) +
   facet_wrap(~sex) +
   scale_fill_manual(values = sharedunshared) +
   guides(fill = guide_legend(nrow = 4)) +
-  coord_flip() 
+  coord_flip()  +
+  guides(fill = guide_legend(reverse = TRUE))
 p2
 ```
 
@@ -160,3 +161,15 @@ p2
 p1 <- ggdraw() + draw_image("fig2venn-original.png", scale = 0.9)
 plot_grid(p1, p2,  rel_widths = c(0.45,0.55))
 ```
+
+Here, the
+Venn diagrams are also scales, but each of the six subplots has their
+own scaling, so you cannot compare all six visually. Moreover, the
+authors report the *percent* of shared gene expression in the
+manuscript, but their Venn diagrams show *counts*. So, I calculated the
+percent of shared differentially expressed genes (%DEGs) and colored all
+overlapping responses in shades of purple and the unique responses in
+shades of orange. Now, once can spot interesting trends in the data,
+like increase response to early and late life stress (ELS + STVS) in the
+female PFC. This is something that is present but not emphasized in the
+Venn.

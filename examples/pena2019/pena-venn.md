@@ -4,7 +4,7 @@ Early life stress alters transcriptomic patterning across reward circuitry in ma
 This venn diagram is from [this
 paper](https://www.biorxiv.org/content/10.1101/624353v1)
 
-![](fig2.png)
+![](Pena2019.png)
 
     library(ggplot2)
     library(dplyr)
@@ -143,7 +143,8 @@ paper](https://www.biorxiv.org/content/10.1101/624353v1)
       facet_wrap(~sex) +
       scale_fill_manual(values = sharedunshared) +
       guides(fill = guide_legend(nrow = 4)) +
-      coord_flip() 
+      coord_flip()  +
+      guides(fill = guide_legend(reverse = TRUE))
     p2
 
 ![](./fig2venn-alt2-3.png)
@@ -152,3 +153,14 @@ paper](https://www.biorxiv.org/content/10.1101/624353v1)
     plot_grid(p1, p2,  rel_widths = c(0.45,0.55))
 
 ![](./pena-original-alt-1.png)
+
+Here, the Venn diagrams are also scales, but each of the six subplots
+has their own scaling, so you cannot compare all six visually. Moreover,
+the authors report the *percent* of shared gene expression in the
+manuscript, but their Venn diagrams show *counts*. So, I calculated the
+percent of shared differentially expressed genes (%DEGs) and colored all
+overlapping responses in shades of purple and the unique responses in
+shades of orange. Now, once can spot interesting trends in the data,
+like increase response to early and late life stress (ELS + STVS) in the
+female PFC. This is something that is present but not emphasized in the
+Venn.
