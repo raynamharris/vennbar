@@ -38,7 +38,7 @@ plot_grid(p1a,p3a,p4a,p2a,
                      NULL,NULL,NULL,NULL), label_size = 8)
 ```
 
-[Venn diagrams](https://en.wikipedia.org/wiki/Venn_diagram) are a type of figure that I see a lot in the literature. While Venn diagrams are a great way to _conceptualize_ the goal of looking for shared or unique transcriptional responses to experimental manipulations, I don't think they are the best way to _vizualize empirical data_. 
+[Venn diagrams](https://en.wikipedia.org/wiki/Venn_diagram) are a type of figure that I see a lot in the literature. While Venn diagrams are a great way to _conceptualize_ the goal of looking for shared or unique transcriptional responses to experimental manipulations, I don't think they are the best way to _visualize empirical data_. 
 
 I searched for “Venn” in Garrett Grolemund & Hadley Wickham’s [R for
 Data Science](https://r4ds.had.co.nz/) book and in Claus Wilke’s
